@@ -3,13 +3,13 @@ import configFactory from '../index';
 import assert from 'assert';
 import nock from 'nock';
 
-
 describe('Config Client', () => {
   const host = 'key.value.service';
   const url = 'http://' + host + '/v1/kv/';
   const key = 'key';
   const expectedValue = 'value';
   const encodedValue = new Buffer(expectedValue).toString();
+  console.log(encodedValue);
   let configClient;
 
   beforeEach(() => {

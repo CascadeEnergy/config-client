@@ -1,7 +1,7 @@
 {
   "name": "@cascadeenergy/config-client",
   "version": "1.0.0",
-  "description": "helps retrive from key/value storage",
+  "description": "Helps retrieve from key/value storage",
   "repository": "notxt/config-client",
   "author": {
     "name": "Cascade Energy",

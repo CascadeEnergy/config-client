@@ -1,4 +1,4 @@
-import httpClient from 'got-promise';
+import got from 'got-promise';
 
 function pluckValue(response) {
   return response.body[0].Value;
@@ -9,15 +9,12 @@ function decodeBase64(value) {
 }
 
 function factory(host) {
-
-  function get(key) {
-    return httpClient(`http://${host}/v1/kv/${key}`, {json: true})
-      .then(pluckValue)
-      .then(decodeBase64);
-  }
-
   return {
-    get: get
+    get(key) {
+      return got(`http://${host}/v1/kv/${key}`, {json: true})
+        .then(pluckValue)
+        .then(decodeBase64);
+    }
   };
 }
 
