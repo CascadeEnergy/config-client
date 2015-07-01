@@ -1,5 +1,5 @@
 {
-  "name": "@cascadeenergy/config-client",
+  "name": "consul-kv",
   "version": "1.0.0",
   "description": "Helps retrieve from key/value storage",
   "repository": "notxt/config-client",
