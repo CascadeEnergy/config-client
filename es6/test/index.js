@@ -1,24 +1,20 @@
 import configFactory from '../index';
-
 import assert from 'assert';
 import nock from 'nock';
 
 describe('Config Client', () => {
-  const host = 'key.value.service';
-  const url = 'http://' + host + '/v1/kv/';
-  const key = 'key';
-  const expectedValue = 'value';
-  const encodedValue = new Buffer(expectedValue).toString();
-  console.log(encodedValue);
-  let configClient;
+  it('should retrieve value', (done) => {
+    const host = 'key.value.service';
+    const url = `http://${host}`;
+    const key = 'key';
+    const endPoint = `/v1/kv/${key}`;
 
-  beforeEach(() => {
-    configClient = configFactory(host);
-  });
+    const expectedValue = 'value';
+    const encodedValue = new Buffer(expectedValue);
+    let configClient = configFactory(host);
 
-  it('should retrieve value', () => {
     nock(url)
-      .get()
+      .get(endPoint)
       .reply(200, [{
         CreateIndex: 97,
         ModifyIndex: 97,
@@ -30,6 +26,7 @@ describe('Config Client', () => {
     configClient.get(key)
       .then(function(actualValue) {
         assert.equal(actualValue, expectedValue);
+        done();
       });
   });
 });
