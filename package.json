@@ -2,7 +2,8 @@
   "name": "consul-kv",
   "version": "1.0.0",
   "description": "Helps retrieve from key/value storage",
-  "repository": "notxt/config-client",
+  "repository": "CascadeEnergy/consul-kv",
+  "license": "Proprietary",
   "author": {
     "name": "Cascade Energy",
     "email": "will.vaughn@cascadeenergy.com"
