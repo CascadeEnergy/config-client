@@ -21,6 +21,7 @@ function decodeBase64(value) {
 function factory(host) {
   return {
     get: function get(key) {
+      console.log('http://' + host + '/v1/kv/' + key);
       return (0, _gotPromise2['default'])('http://' + host + '/v1/kv/' + key, { json: true }).then(pluckValue).then(decodeBase64);
     }
   };

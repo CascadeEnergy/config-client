@@ -11,6 +11,7 @@ function decodeBase64(value) {
 function factory(host) {
   return {
     get(key) {
+      console.log(`http://${host}/v1/kv/${key}`);
       return got(`http://${host}/v1/kv/${key}`, {json: true})
         .then(pluckValue)
         .then(decodeBase64);
